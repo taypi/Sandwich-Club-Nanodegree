@@ -1,12 +1,26 @@
 package com.udacity.sandwichclub.model;
 
+import com.udacity.sandwichclub.R;
+
+import java.net.URL;
 import java.util.List;
 
 public class Sandwich {
 
-    private String mainName;
+    public static final String KEY_NAME = "name";
+    public static final String KEY_MAIN_NAME = "mainName";
+    public static final String KEY_ALSO_KNOWN_AS = "alsoKnownAs";
+    public static final String KEY_PLACE_OF_ORIGIN = "placeOfOrigin";
+    public static final String KEY_DESCRIPTION = "description";
+    public static final String KEY_IMAGE_URL = "image";
+    public static final String KEY_INGREDIENTS = "ingredients";
+
+    private final String UNKNOWN = "Unknown";
+    private final String NOT_AVAILABLE = "Not available";
+
+    private String mainName = UNKNOWN;
     private List<String> alsoKnownAs = null;
-    private String placeOfOrigin;
+    private String placeOfOrigin = UNKNOWN;
     private String description;
     private String image;
     private List<String> ingredients = null;
@@ -31,7 +45,7 @@ public class Sandwich {
     }
 
     public void setMainName(String mainName) {
-        this.mainName = mainName;
+        this.mainName = mainName.isEmpty() ? UNKNOWN : mainName;
     }
 
     public List<String> getAlsoKnownAs() {
@@ -47,7 +61,7 @@ public class Sandwich {
     }
 
     public void setPlaceOfOrigin(String placeOfOrigin) {
-        this.placeOfOrigin = placeOfOrigin;
+        this.placeOfOrigin = placeOfOrigin.isEmpty() ? UNKNOWN : placeOfOrigin;
     }
 
     public String getDescription() {
@@ -55,7 +69,7 @@ public class Sandwich {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.description = description.isEmpty() ? NOT_AVAILABLE : description;
     }
 
     public String getImage() {
