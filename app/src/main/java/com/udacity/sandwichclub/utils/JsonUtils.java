@@ -19,24 +19,24 @@ public class JsonUtils {
         sandwich.setMainName(getSandwichMainName(sandwichJson));
         sandwich.setAlsoKnownAs(getSandwichAka(sandwichJson));
         sandwich.setIngredients(getIngredients(sandwichJson));
-        sandwich.setDescription(sandwichJson.optString(Sandwich.KEY_DESCRIPTION));
-        sandwich.setImage(sandwichJson.optString(Sandwich.KEY_IMAGE_URL));
-        sandwich.setPlaceOfOrigin(sandwichJson.optString(Sandwich.KEY_PLACE_OF_ORIGIN));
+        sandwich.setDescription(sandwichJson.optString(Sandwich.DESCRIPTION));
+        sandwich.setImage(sandwichJson.optString(Sandwich.IMAGE_URL));
+        sandwich.setPlaceOfOrigin(sandwichJson.optString(Sandwich.PLACE_OF_ORIGIN));
 
         return sandwich;
     }
 
     private static String getSandwichMainName(JSONObject sandwichJson) throws JSONException {
-        return sandwichJson.getJSONObject(Sandwich.KEY_NAME).optString(Sandwich.KEY_MAIN_NAME);
+        return sandwichJson.getJSONObject(Sandwich.NAME).optString(Sandwich.MAIN_NAME);
     }
 
     private static List<String> getSandwichAka(JSONObject sandwichJson) throws JSONException {
-        JSONObject nameJson = sandwichJson.getJSONObject(Sandwich.KEY_NAME);
-        return getListFromJsonArray(nameJson, Sandwich.KEY_ALSO_KNOWN_AS);
+        JSONObject nameJson = sandwichJson.getJSONObject(Sandwich.NAME);
+        return getListFromJsonArray(nameJson, Sandwich.AKA);
     }
 
     private static List<String> getIngredients(JSONObject sandwichJson) {
-        return getListFromJsonArray(sandwichJson, Sandwich.KEY_INGREDIENTS);
+        return getListFromJsonArray(sandwichJson, Sandwich.INGREDIENTS);
     }
 
     private static List<String> getListFromJsonArray(JSONObject json, String key) {

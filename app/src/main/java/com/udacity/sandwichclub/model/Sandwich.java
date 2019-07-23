@@ -1,22 +1,19 @@
 package com.udacity.sandwichclub.model;
 
-import com.udacity.sandwichclub.R;
-
-import java.net.URL;
 import java.util.List;
 
 public class Sandwich {
 
-    public static final String KEY_NAME = "name";
-    public static final String KEY_MAIN_NAME = "mainName";
-    public static final String KEY_ALSO_KNOWN_AS = "alsoKnownAs";
-    public static final String KEY_PLACE_OF_ORIGIN = "placeOfOrigin";
-    public static final String KEY_DESCRIPTION = "description";
-    public static final String KEY_IMAGE_URL = "image";
-    public static final String KEY_INGREDIENTS = "ingredients";
+    public static final String NAME = "name";
+    public static final String MAIN_NAME = "mainName";
+    public static final String AKA = "alsoKnownAs";
+    public static final String PLACE_OF_ORIGIN = "placeOfOrigin";
+    public static final String DESCRIPTION = "description";
+    public static final String IMAGE_URL = "image";
+    public static final String INGREDIENTS = "ingredients";
 
-    private final String UNKNOWN = "Unknown";
-    private final String NOT_AVAILABLE = "Not available";
+    private static final String UNKNOWN = "Unknown";
+    private static final String NOT_AVAILABLE = "Not available";
 
     private String mainName = UNKNOWN;
     private List<String> alsoKnownAs = null;
